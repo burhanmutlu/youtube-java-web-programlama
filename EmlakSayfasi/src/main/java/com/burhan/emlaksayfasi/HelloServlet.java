@@ -1,4 +1,4 @@
-package com.emlak.emlaksayfasi;
+package com.burhan.emlaksayfasi;
 
 import java.io.*;
 import jakarta.servlet.http.*;
