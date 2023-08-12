@@ -1,0 +1,1 @@
+###Java ile yapılacak olan emlak sayfası örneğidir.
