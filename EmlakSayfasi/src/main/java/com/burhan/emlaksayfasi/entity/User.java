@@ -12,6 +12,11 @@ public class User {
 
     }
 
+    public User(String email, String password) {
+        this.email = email;
+        this.password = password;
+    }
+
     public User(String name, String surname, String email, String password) {
         this.name = name;
         this.surname = surname;
@@ -54,5 +59,10 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Override
+    public String toString() {
+        return this.name + " " + this.surname + " " + this.email + " " + this.password;
     }
 }

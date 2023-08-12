@@ -7,24 +7,17 @@ import java.sql.SQLException;
 public class ConnectionManager {
 
     public static Connection getConnection() {
-
         Connection conn = null;
 
-        try {
+        try{
             Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/EmlakDB","postgres", "1234");
-        } catch (ClassNotFoundException e) {
+            conn = DriverManager.getConnection("jdbc:postgresql://localhost:5432/EmlakDB", "postgres", "1234");
+        } catch(ClassNotFoundException e) {
             e.printStackTrace();
-        } catch (SQLException e) {
+        } catch(SQLException e) {
             e.printStackTrace();
         }
-
         return conn;
-
-    }
-
-    public static void main(String[] args) {
-        System.out.println(ConnectionManager.getConnection());
     }
 
 }
