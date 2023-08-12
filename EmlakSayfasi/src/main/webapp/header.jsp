@@ -19,12 +19,33 @@
     <div class="menu-li">
       <a href="index.jsp">Ana Sayfa</a>
     </div>
-    <div class="menu-li">
-      <a href="userSignUp.jsp">Üye Ol</a>
-    </div>
-    <div class="menu-li">
-      <a href="userSignIn.jsp">Giriş Yap</a>
-    </div>
+    <c:if test="${empty user}" >
+      <div class="menu-li">
+        <a href="userSignUp.jsp">Üye Ol</a>
+      </div>
+      <div class="menu-li">
+        <a href="userSignIn.jsp">Giriş Yap</a>
+      </div>
+    </c:if>
+    <c:if test="${not empty user}">
+      <div class="menu-li">
+        <a href="userLogout">Çıkış Yap</a>
+      </div>
+      <div class="menu-li">
+        <a href="/">Hesabım</a>
+      </div>
+      <div class="menu-li">
+        <h5 style="color: red" >
+          Hoş geldin  ${user.getName()}
+                      ${user.getSurname()}
+                      ${user.getId()}
+                      ${user.getEmail()}
+                      ${user.getPassword()}
+        </h5>
+      </div>
+    </c:if>
+
+
   </div>
 </div>
 

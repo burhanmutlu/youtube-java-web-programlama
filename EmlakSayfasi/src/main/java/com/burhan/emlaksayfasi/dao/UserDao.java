@@ -9,5 +9,6 @@ public interface UserDao {
     public boolean addUser(User user);
     public boolean deleteUser(User user);
     public boolean isRegistered(User user);
+    public User getUserDetails(User user);
 
 }

@@ -10,7 +10,7 @@
 
 <jsp:include page="header.jsp" />
 
-<form class="form" method="post" >
+<form class="form" method="post" action="userSignIn">
   <table>
     <tr>
       <td>Email: </td>
@@ -27,5 +27,10 @@
     </tr>
   </table>
 </form>
+<div>
+  <c:if test="${not empty userSignInErrorMessage}" >
+    <b>${userSignInErrorMessage}</b>
+  </c:if>
+</div>
 
 <jsp:include page="footer.jsp" />

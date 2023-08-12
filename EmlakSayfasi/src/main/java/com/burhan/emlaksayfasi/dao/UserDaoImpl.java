@@ -59,8 +59,6 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean deleteUser(User user) {
 
-
-
         try {
             Connection conn = ConnectionManager.getConnection();
             String q = "DELETE FROM users WHERE email=? and password=?";
@@ -81,10 +79,10 @@ public class UserDaoImpl implements UserDao {
     @Override
     public boolean isRegistered(User user) {
 
-        Connection conn = ConnectionManager.getConnection();
-        String q = "SELECT * FROM users WHERE email=? and password=?";
-
         try {
+            Connection conn = ConnectionManager.getConnection();
+            String q = "SELECT * FROM users WHERE email=? and password=?";
+
             PreparedStatement psmt = conn.prepareStatement(q);
             psmt.setString(1, user.getEmail());
             psmt.setString(2, user.getPassword());
@@ -99,5 +97,33 @@ public class UserDaoImpl implements UserDao {
             e.printStackTrace();
         }
         return false;
+    }
+
+    @Override
+    public User getUserDetails(User user) {
+
+        try {
+
+            Connection conn = ConnectionManager.getConnection();
+            String q = "SELECT id,name,surname FROM users WHERE email=? and password=?";
+
+            PreparedStatement psmt = conn.prepareStatement(q);
+            psmt.setString(1, user.getEmail());
+            psmt.setString(2, user.getPassword());
+
+            ResultSet rs = psmt.executeQuery();
+
+            while(rs.next()) {
+                user.setId(rs.getInt(1));
+                user.setName(rs.getString(2));
+                user.setSurname(rs.getString(3));
+            }
+
+            return user;
+
+        }catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

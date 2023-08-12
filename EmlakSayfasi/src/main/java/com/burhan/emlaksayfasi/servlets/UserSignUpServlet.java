@@ -10,10 +10,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 @WebServlet("/userSignUp")
-public class userSignUp extends HttpServlet {
+public class UserSignUpServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -27,6 +26,8 @@ public class userSignUp extends HttpServlet {
         boolean b = userDao.addUser(user);
 
         if(b) {
+            user = userDao.getUserDetails(user);
+            req.getSession().setAttribute("user", user);
             resp.sendRedirect("index.jsp");
         } else {
             String message = "Hatalı kayıt yaptınız. Tekrar deneyiniz.";
@@ -34,4 +35,6 @@ public class userSignUp extends HttpServlet {
             req.getRequestDispatcher("userSignUp.jsp").forward(req, resp);
         }
     }
+
+
 }
