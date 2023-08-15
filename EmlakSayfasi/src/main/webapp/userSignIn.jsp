@@ -13,21 +13,36 @@
 <form class="form" method="post" action="userSignIn">
   <table>
     <tr>
-      <td>Email: </td>
-      <td><input type="email" name="email"></td>
+      <td id="email"><input type="email" name="email" placeholder="E-posta" onblur="formControl()"></td>
     </tr>
     <tr>
-      <td>Şifre: </td>
-      <td><input type="password" name="password"></td>
+      <td>
+        <div class="inputPassword">
+          <div id="hideShowPass" onclick="hideShowPassword()" >
+            <img id="eyePass" width="24px" height="24px" src="assets/images/hidden.png" />
+          </div>
+          <div>
+            <input id="password" type="password" name="password" placeholder="Şifre" onblur="formControl()">
+          </div>
+        </div>
+      </td>
     </tr>
     <tr>
       <td>
         <input class="button" type="submit" value="Giriş Yap">
       </td>
     </tr>
-  </table>
+  </table><br>
+  <div>
+    <a href="">Şifremi Unuttum</a>
+  </div>
+
+  <div>
+    <span>Üye Değilseniz Hemen </span><a href="userSignUp.jsp">Üye Ol</a>
+  </div>
 </form>
-<div>
+
+
   <c:if test="${not empty userSignInErrorMessage}" >
     <b>${userSignInErrorMessage}</b>
   </c:if>

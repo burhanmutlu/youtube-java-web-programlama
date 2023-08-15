@@ -8,5 +8,7 @@
     <p>youtube: <a href="youtube.com">Instagram</a></p>
 </div>
 
+<script src="assets/js/index.js"></script>
+
 </body>
 </html>

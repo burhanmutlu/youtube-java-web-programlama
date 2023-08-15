@@ -27,6 +27,11 @@
             </td>
         </tr>
     </table>
+
+    <div>
+        <span>Zaten Üye misiniz? </span><a href="userSignIn.jsp">Giriş Yapın</a>
+    </div>
+
 </form>
 <div>
     <c:if test="${not empty userSignUpErrorMessage}" >
